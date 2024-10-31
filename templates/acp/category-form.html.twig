@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ category.id is defined ?  'acp_category_create_page.title'|trans : 'acp_category_edit_page.title'|trans }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ category.id is defined ? 'acp_category_create_page.title'|trans : 'acp_category_edit_page.title'|trans }}</h1>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit" class="btn btn-primary">
+        {{ 'save_button'|trans }}
+    </button>
+    {{ form_end(form) }}
+{% endblock %}

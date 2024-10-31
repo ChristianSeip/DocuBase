@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="search-bar-container pt-6 pb-6">
+            <form action="{{ path('app_search') }}" method="get">
+                <div class="form-row">
+                    <input type="text" minlength="3" placeholder="{{ 'article_search'|trans }}" aria-placeholder="{{ 'article_search'|trans }}" name="q"
+                           style="margin-top: 0" required>
+                    <button type="submit" class="btn btn-primary">{{ 'search_button'|trans }}</button>
+                </div>
+            </form>
+        </div>
+        {% if articles is not empty %}
+            <ul class="list-style-none">
+                {% for article in articles %}
+                    <li>
+                        <a href="{{ path('app_article', { 'articleId': article.id, 'articleTitle': article.title | slug | lower }) }}" class="link-primary">
+                            <div class="card">
+                                <div class="card-header">{{ article.category.parent ? article.category.parent.name ~ ' / ' ~ article.category.name : article.category.name }} / {{ article.title }}</div>
+                                <div class="card-body">
+                                    {{ article.text[:150] }}...
+                                </div>
+                                <div class="card-footer">{{ article.createdAt|date('d-m-Y') }}{% if article.updatedAt %} | Updated: {{ article.updatedAt|date('d-m-Y') }}{% endif %}</div>
+                            </div>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="text-center">No articles found.</p>
+        {% endif %}
+    </div>
+
+{% endblock %}

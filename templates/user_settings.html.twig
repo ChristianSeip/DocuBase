@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'user_settings_page.title'|trans }}{% endblock %}
+
+{% block body %}
+    <h1>{{ 'user_settings_page.form.title'|trans }}</h1>
+
+    {{ form_start(settingsForm) }}
+    {{ form_row(settingsForm.email) }}
+    {{ form_row(settingsForm.plainPassword.first) }}
+    {{ form_row(settingsForm.plainPassword.second) }}
+
+    <button type="submit" class="btn btn-primary">{{ 'update_button'|trans }}</button>
+    {{ form_end(settingsForm) }}
+
+{% endblock %}

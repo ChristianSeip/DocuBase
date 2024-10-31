@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'acp_user_list_page.title'|trans }}{% endblock %}
+
+{% block body %}
+    <header class="d-flex align-items-center" style="justify-content: space-between">
+        <h1>{{ 'acp_user_list_page.title'|trans }}</h1>
+        <div>
+            {% if has_permission('can_edit_users') %}
+                <a href="{{ path('acp_user_create') }}" class="btn btn-primary">{{ 'acp_user_list_page.new_user_button'|trans }}</a>
+            {% endif %}
+        </div>
+    </header>
+    <table class="table-striped table-responsive">
+        <thead>
+        <tr>
+            <th>{{ 'uuid'|trans }}</th>
+            <th>{{ 'username'|trans }}</th>
+            <th>{{ 'mail'|trans }}</th>
+            <th>{{ 'actions'|trans }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                    {% if has_permission('can_edit_users') %}
+                        <a href="{{ path('acp_user_edit', {id: user.id}) }}">{{ 'edit_button'|trans }}</a>
+                    {% endif %}
+                    {% if has_permission('can_delete_users') %}
+                        <a href="{{ path('acp_user_delete', {id: user.id}) }}" onclick="return confirm({{ 'acp_user_delete.prompt'|trans }});">{{ 'delete_button'|trans }}</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{'acp_role_list_page.title'|trans }}{% endblock %}
+
+{% block body %}
+    <header class="d-flex align-items-center" style="justify-content: space-between">
+        <h1>{{'acp_role_list_page.title'|trans }}</h1>
+        <div>
+            <a href="{{ path('acp_role_create') }}" class="btn btn-primary">{{ 'acp_role_list_page.new_role_button'|trans }}</a>
+        </div>
+    </header>
+
+    <ul class="list-style-none">
+        {% for role in roles %}
+            <li class="card">
+                <div>
+                    <strong>{{ role.name }}</strong>
+                    <p>{{ role.description }}</p>
+                </div>
+                <div>
+                    {% if has_permission('can_edit_roles') %}
+                        <a href="{{ path('acp_role_edit', {id: role.id}) }}" class="btn btn-sm">{{'edit_button'|trans }}</a>
+                    {% endif %}
+                    {% if (role.protected == false) and (has_permission('can_delete_roles')) %}
+                         <a href="{{ path('acp_role_delete', {id: role.id}) }}" class="btn btn-danger btn-sm" onclick="return confirm({{ 'acp_category_list_page.delete_prompt'|trans }});">{{'delete_button'|trans }}</a>
+                    {% endif %}
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ role.id is defined ? 'acp_role_edit_page.title'|trans : 'acp_role_create_page.title'|trans }}
+{% endblock %}
+
+{% block body %}
+    <header>
+        <h1>{{ role.id is defined ? 'acp_role_edit_page.title'|trans : 'acp_role_create_page.title'|trans }}</h1>
+    </header>
+
+    {{ form_start(form) }}
+
+    <fieldset class="form-group">
+        <legend>{{ 'role_details'|trans }}</legend>
+
+        <div class="form-group">
+            <label for="name">{{ 'role_name'|trans }}</label>
+            {{ form_widget(form.name, {'attr': {'class': 'input'}}) }}
+        </div>
+        <div class="form-group">
+            <label for="description">{{ 'role_description'|trans }}</label>
+            {{ form_widget(form.description, {'attr': {'class': 'input'}}) }}
+        </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+        <legend>{{ 'permissions'|trans }}</legend>
+        <div class="form-group">
+            {% for permissionField in form %}
+                {% if (permissionField.vars.name != 'name') and (permissionField.vars.name != '_token') and (permissionField.vars.name != 'description') %}
+                    <div class="form-options">
+                        <label>
+                            {{ form_widget(permissionField, {'attr': {'class': 'checkbox'}}) }}
+                            {{ permissionField.vars.name|trans }}
+                        </label>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </fieldset>
+
+    <button type="submit" class="btn btn-primary">{{ 'save_button'|trans }}</button>
+    {{ form_end(form) }}
+{% endblock %}

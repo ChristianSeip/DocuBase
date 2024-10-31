@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'register_page.title'|trans }}{% endblock %}
+
+{% block body %}
+    <header class="mb-6">
+        <h1>{{ 'register'|trans }}</h1>
+        <p>{{ 'register_page.login_prompt'|trans({'%path%': path('app_login')})|raw }}</p>
+    </header>
+
+    {{ form_start(registrationForm) }}
+    <fieldset>
+        <legend>{{ 'user_data'|trans }}</legend>
+        {{ form_row(registrationForm.username) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.password) }}
+        <p>            {{ 'register_page.disclaimer'|trans({
+                '%terms_url%': terms_url,
+                '%privacy_url%': privacy_url
+            })|raw }}</p>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+        <button type="submit" class="btn btn-primary btn-block mt-5">{{ 'register'|trans }}</button>
+    </fieldset>
+    {{ form_end(registrationForm) }}
+{% endblock %}

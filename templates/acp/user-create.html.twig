@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'acp_user_create_page.title'|trans }}{% endblock %}
+
+{% block body %}
+    <header>
+        <h1>{{ 'acp_user_create_page.title'|trans }}</h1>
+    </header>
+
+    {{ form_start(userForm) }}
+
+    <fieldset class="form-group">
+        <legend>{{ 'acp_user_create_page.account_details'|trans }}</legend>
+
+        <div class="form-group">
+            <label for="username">{{ 'username'|trans }}</label>
+            {{ form_widget(userForm.username, {'attr': {'class': 'input'}}) }}
+        </div>
+
+        <div class="form-group">
+            <label for="email">{{ 'mail'|trans }}</label>
+            {{ form_widget(userForm.email, {'attr': {'class': 'input'}}) }}
+        </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+        <legend>{{ 'acp_user_create_page.security'|trans }}</legend>
+
+        <div class="form-group">
+            <label for="plainPassword">{{ 'password'|trans }}</label>
+            <div class="form-password">
+                {{ form_widget(userForm.password, {'attr': {'class': 'input', 'placeholder': 'acp_user_create_page.placeholder_password'|trans }}) }}
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+        <legend>{{ 'acp_user_create_page.user_status'|trans }}</legend>
+
+        <div class="form-group">
+            <div class="form-options">
+                <label>{{ form_widget(userForm.is_verified, {'attr': {'class': 'checkbox'}}) }} {{ 'acp_user_create_page.verified'|trans }}</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-options">
+                <label>{{ form_widget(userForm.is_locked, {'attr': {'class': 'checkbox'}}) }} {{ 'acp_user_create_page.locked'|trans }}</label>
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+        <legend>{{ 'acp_user_create_page.roles'|trans }}</legend>
+        <div class="form-group">
+            {{ form_widget(userForm.roles, {'attr': {'class': 'select-multiple'}}) }}
+        </div>
+    </fieldset>
+
+    <button type="submit" class="btn btn-primary">{{ 'save_button'|trans }}</button>
+
+    {{ form_end(userForm) }}
+{% endblock %}

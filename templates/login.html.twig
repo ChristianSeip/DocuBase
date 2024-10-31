@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'login_page.title'|trans }}{% endblock %}
+
+{% block body %}
+    <header class="mb-6">
+        <h1>{{ 'sign_in'|trans }}</h1>
+        <p>{{ 'login_page.register_prompt'|trans({'%path%': path('app_register')})|raw }}</p>
+    </header>
+
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans }}</div>
+    {% endif %}
+
+    <form action="{{ path('app_login') }}" method="post">
+        <fieldset>
+            <legend>Benutzer</legend>
+            <label for="inputEmail">{{ 'mail'|trans }}</label>
+            <input type="email" id="inputEmail" name="_username" value="{{ last_username }}" required autofocus>
+
+            <label for="inputPassword">{{ 'password'|trans }}</label>
+            <input type="password" id="inputPassword" name="_password" required>
+
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            <button type="submit" class="btn btn-primary btn-block mt-5">{{ 'sign_in'|trans }}</button>
+        </fieldset>
+    </form>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'acp_dashboard_page.title'|trans }}{% endblock %}
+
+{% block body %}
+    <header class="mb-6">
+        <h1>{{ 'acp_dashboard_page.title'|trans }}</h1>
+    </header>
+
+    <section>
+        <h2>{{ 'acp_dashboard_page.user_stats'|trans }}</h2>
+        <table class="table-responsive">
+            <tr>
+                <th class="w-50">{{ 'acp_dashboard_page.total_users'|trans }}</th>
+                <td>{{ totalUsers }}</td>
+            </tr>
+            <tr>
+                <th class="w-50">{{ 'acp_dashboard_page.total_users_30d'|trans }}</th>
+                <td>{{ newUsersLast30Days }}</td>
+            </tr>
+            <tr>
+                <th class="w-50">{{ 'acp_dashboard_page.total_users_banned'|trans }}</th>
+                <td>{{ blockedUsers }}</td>
+            </tr>
+            <tr>
+                <th class="w-50">{{ 'acp_dashboard_page.total_user_roles'|trans }}</th>
+                <td>{{ totalRoles }}</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>{{ 'acp_dashboard_page.content_stats'|trans }}</h2>
+        <table class="table-responsive">
+            <tr>
+                <th class="w-50">{{ 'acp_dashboard_page.total_categories'|trans }}</th>
+                <td>{{ totalCategories }}</td>
+            </tr>
+            <tr>
+                <th class="w-50">{{ 'acp_dashboard_page.total_articles'|trans }}</th>
+                <td>{{ totalArticles }}</td>
+            </tr>
+            <tr>
+                <th class="w-50">{{ 'acp_dashboard_page.total_articles_30d'|trans }}</th>
+                <td>{{ newArticlesLast30Days }}</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>{{ 'acp_dashboard_page.system_informations'|trans }}</h2>
+        <table class="table-responsive">
+            <tr>
+                <th class="w-50">{{ 'acp_dashboard_page.php_version'|trans }}</th>
+                <td>{{ phpVersion }}</td>
+            </tr>
+            <tr>
+                <th class="w-50">{{ 'acp_dashboard_page.server_version'|trans }}</th>
+                <td>{{ serverSoftware }}</td>
+            </tr>
+        </table>
+    </section>
+{% endblock %}

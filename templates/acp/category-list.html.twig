@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{'acp_category_list_page.title'|trans }}{% endblock %}
+
+{% block body %}
+    <header class="d-flex align-items-center" style="justify-content: space-between">
+        <h1>{{'acp_category_list_page.title'|trans }}</h1>
+        <div>
+            {% if has_permission('can_create_categories') %}
+                <a href="{{ path('acp_category_create') }}" class="btn btn-primary">{{ 'acp_category_list_page.new_category_button'|trans }}</a>
+            {% endif %}
+        </div>
+    </header>
+
+    <ul class="list-style-none">
+        {% for mainCategory in mainCategories %}
+            <li class="card">
+                <div><span class="text-lead">{{ mainCategory.category.name }}</span> (ID: {{ mainCategory.category.id }})</div>
+                <div>
+                    {% if has_permission('can_edit_categories') %}
+                        <a href="{{ path('acp_category_edit', {id: mainCategory.category.id}) }}" class="btn btn-sm">{{'edit_button'|trans }}</a>
+                    {% endif %}
+                    {% if has_permission('can_delete_categories') %}
+                        <a href="{{ path('acp_category_delete', {id: mainCategory.category.id}) }}" class="btn btn-sm btn-danger" onclick="return confirm({{ 'acp_category_list_page.delete_prompt'|trans }});">{{'delete_button'|trans }}</a>
+                    {% endif %}
+                </div>
+            </li>
+
+            {% if subCategories[mainCategory.category.id] is defined %}
+                {% for subcategory in subCategories[mainCategory.category.id] %}
+                    <li class="card">
+                        <div>{{ mainCategory.category.name }} / <span class="text-lead">{{ subcategory.name }}</span> (ID: {{ subcategory.id }})</div>
+                        <div>
+                            {% if has_permission('can_edit_categories') %}
+                                <a href="{{ path('acp_category_edit', {id: subcategory.id}) }}" class="btn btn-sm">{{'edit_button'|trans }}</a>
+                            {% endif %}
+                            {% if has_permission('can_delete_categories') %}
+                                <a href="{{ path('acp_category_delete', {id: subcategory.id}) }}" class="btn btn-sm btn-danger" onclick="return confirm({{ 'acp_category_list_page.delete_prompt'|trans }});">{{'delete_button'|trans }}</a>
+                            {% endif %}
+                        </div>
+                    </li>
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endblock %}

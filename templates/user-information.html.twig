@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'information_page.title'|trans }}{% endblock %}
+
+{% block body %}
+    <header class="mb-6">
+        <h1>{{ 'information_page.title'|trans }}</h1>
+    </header>
+
+    <p>{{ message }}</p>
+{% endblock %}

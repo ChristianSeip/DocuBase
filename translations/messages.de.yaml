@@ -1,0 +1,142 @@
+email:
+  verification:
+    mail_subject: 'Mail Verifizierung'
+    mail_body: 'Hallo %username%,<br><br>um deine Registration abzuschließen verifiziere bitte deine Mail Adressem in dem du auf den unten stehenden Link klickst:<br><br>%link%<br><br>'
+    error:
+      invalid_token_title: 'Ungültiger Token'
+      invalid_token_message: 'Der Token konnte nicht verifiziert werden.'
+      mail_sending_error: 'Beim Senden der Verifizierungs-Mail gab es ein Problem. Bitte wende dich an den Support.'
+    success:
+      title: 'Erfolgreich verifiziert'
+      message: 'Deine E-Mail Adresse wurde erfolgreich verifiziert.'
+user_data: 'Benutzerdaten'
+username: 'Benutzername'
+mail: 'E-Mail'
+password: 'Passwort'
+article_search: 'Suche nach Artikeln'
+search_button: 'Suchen'
+update_button: 'Aktualisieren'
+save_button: 'Speichern'
+delete_button: 'Löschen'
+edit_button: 'Bearbeiten'
+actions: 'Aktionen'
+uuid: 'UUID'
+sign_in: 'Anmelden'
+register: 'Registrieren'
+logout: 'Abmelden'
+account_locked: 'Dein Konto ist gesperrt. Bitte wende dich an den Support.'
+register_page:
+  title: 'Registration'
+  login_prompt: 'Bereits registriert? <a href="%path%">Jetzt anmelden!</a>'
+  disclaimer: 'Mit der Registration stimmst du den <a href="%terms_url%">Nutzungsbedingungen</a> sowie den <a href="%privacy_url%">Datenschutzbedingungen</a> zu.'
+  success:
+    title: 'Registration erfolgreich!'
+    message: 'Bitte überprüfe deine E-Mails, um deine Registration zu bestätigen.'
+  error:
+    cannot_create_user: 'Fehler: '
+    too_many_registrations: 'Es gab zu viele Registrationen von deiner IP. Bitte versuche es später.'
+login_page:
+  title: 'Anmelden'
+  error:
+    too_many_attempts: 'Es gab zu viele Anmeldeversuche von deiner IP. Bitte versuche es später.'
+    email_not_verified: 'Bitte bestätige deien E-Mail Adresse, bevor du dich anmeldest.'
+  register_prompt: 'Noch kein Konto? <a href="%path%">Jetzt registrieren!</a>'
+information_page:
+  title: 'Information'
+user_settings_page:
+  title: 'Einstellungen'
+  form:
+    title: 'Konto aktualisieren'
+    email_label: 'Neue E-Mail'
+    password_label: 'Neues Passwort'
+    password_repeat_label: 'Passwort wiederholen'
+  success:
+    title: 'Erfolg'
+    message: 'Deine Einstellungen wurden erfolgreich gespeichert.'
+category_page:
+  title: 'Kategorie-Übersicht'
+  'sub_category': 'Sub-Kategorie'
+  'article': 'Artikel'
+article_editor_page:
+  title: 'Artikel bearbeiten'
+acp_dashboard_page:
+  title: 'Dashboard'
+  user_stats: 'Nutzer-Statistiken'
+  total_users: 'Benutzer'
+  total_users_30d: 'Neue Benutzer (30T)'
+  total_users_banned: 'Gesperrte Benutzer'
+  total_user_roles: 'Benutzer-Rollen'
+  content_stats: 'Inhalts-Statistiken'
+  total_categories: 'Kategorien'
+  total_articles: 'Artikel'
+  total_articles_30d: 'Neue Artikel (30T)'
+  system_informations: 'System Informationem'
+  php_version: 'PHP Version'
+  server_version: 'Betriebssystem'
+acp_user_edit_page:
+  title: 'Benutzer bearbeiten'
+  account_details: 'Kontodetails'
+  security: 'Sicherheit'
+  placeholder_password: 'Passwort eingeben'
+  placeholder_repeat_password: 'Passwort wiederholen'
+  user_status: 'Status'
+  verified: 'Verifiziert'
+  locked: 'Gesperrt'
+  roles: 'Rollen'
+acp_user_create_page:
+  title: 'Neuer Benutzer'
+  account_details: 'Kontodetails'
+  security: 'Sicherheit'
+  placeholder_password: 'Passwort eingeben'
+  placeholder_repeat_password: 'Passwort wiederholen'
+  user_status: 'Status'
+  verified: 'Verifiziert'
+  locked: 'Gesperrt'
+  roles: 'Rollen'
+  success_message: 'Benutzer erfolgreich erstellt.'
+acp_user_delete:
+  prompt: 'Bist du sicher, dass du diesen Benutzer löschen möchtest??'
+  error_admin_role: '%username% ist Admin und kann nicht gelöscht werden.'
+  success_message: '%username% wurde erfolgreich gelöscht.'
+acp_user_list_page:
+  title: 'User Management'
+  new_user_button: 'Neuer Benutzer'
+acp_category_list_page:
+  title: 'Kategorien'
+  delete_prompt: 'Bist du sicher, dass du diese Kategorie löschen möchtest?'
+  new_category_button: 'Neue Kategorie'
+acp_category_create_page:
+  title: 'Neue Kategorie'
+  success_message: 'Kategorie erstellt.'
+acp_category_edit_page:
+  title: 'Kategorie bearbeiten'
+  success_message: 'Kategorie aktualisiert.'
+acp_category_delete_page:
+  category_not_empty: 'Die Kategorie ist nicht leer und kann deshalb nicht gelöscht werden.'
+  category_deleted: 'Kategorie gelöscht.'
+  deletion_failed: 'Die Kategorie konnte aufgrund eines unerwarteten Fehlers nicht gelöscht werden.'
+acp_role_list_page:
+  title: 'Rollen Management'
+  new_role_button: 'Neue Rolle'
+acp_role_create_page:
+  title: 'Rolle erstellen'
+  success_message: 'Rolle erfolgreich erstellt.'
+acp_role_edit_page:
+  title: 'Rolle bearbeiten'
+  success_message: 'Rolle erfolgreich aktualisiert.'
+acp_role_delete_page:
+  cannot_delete_protected_role: 'Diese Rolle ist geschützt und kann nicht gelöscht werden.'
+  role_deleted: 'Rolle erfolgreich gelöscht.'
+role_details: 'Rollen-Details'
+role_name: 'Rollen-Name'
+role_description: 'Rollen-Beschreibung'
+role_not_found: 'Rolle nicht gefunden.'
+permissions: 'Berechtigungen'
+new_article: 'Neuer Artikel'
+author: 'Autor'
+updated: 'Aktualisiert'
+category_not_found: 'Kategorie konnte nicht gefunden werden.'
+too_many_search_requests: 'Du hast zu viele Suchanfragen gestartet. Bitte warte einen Moment.'
+users: 'Benutzer'
+categories: 'Kategorien'
+roles: 'Rollen'

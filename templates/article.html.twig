@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block body %}
+    <div class="search-bar-container">
+        <form action="{{ path('app_search') }}" method="get">
+            <div class="form-row">
+                <input type="text" minlength="3" placeholder="{{ 'article_search'|trans }}"
+                       aria-placeholder="{{ 'article_search'|trans }}" name="q"
+                       style="margin-top: 0" required>
+                <button type="submit" class="btn btn-primary">{{ 'search_button'|trans }}</button>
+            </div>
+        </form>
+    </div>
+    <main class="mb-6 mt-6">
+        <header class="d-flex align-items-center">
+            <button class="btn btn-primary btn-toggle d-md-block mr-3" onclick="toggleArticleNav()">☰</button>
+            <small>{{ article.category.parent ? article.category.parent.name ~ ' / ' ~ article.category.name : article.category.name }}
+                / {{ article.title }}</small>
+        </header>
+        <div class="d-flex">
+            <nav class="article-nav hidden">
+                <ul class="list-style-none">
+                </ul>
+            </nav>
+            <article class="article card w-100">
+                <div class="card-header">
+                    <h1>{{ article.title }}</h1>
+                </div>
+                <div class="card-body">
+                    {{ article.text|raw }}
+                </div>
+                <div class="card-footer">
+                    <p>
+                        {{ 'author'|trans }}: {{ article.user.username }} |
+                        <time datetime="{{ article.createdAt|date('Y-m-d H:i') }}">
+                            {{ article.createdAt|date('Y-m-d H:i') }}
+                        </time>
+                        {% if article.updatedAt %}
+                            <span> ({{ 'updated'|trans }}:
+            <time datetime="{{ article.updatedAt|date('Y-m-d H:i') }}">
+                {{ article.updatedAt|date('Y-m-d H:i') }}
+            </time>)</span>
+                        {% endif %}
+                    </p>
+                    <p>
+                        {% if has_permission('can_edit_article') %}
+                        <a href="{{ path('app_article_edit', {'id': article.id}) }}" class="btn btn-sm">Edit</a>
+                        {% endif %}
+                        {% if has_permission('can_delete_article') %}
+                        <a href="{{ path('app_article_delete', {'id': article.id}) }}" class="btn btn-sm btn-danger">Delete</a>
+                        {% endif %}
+                    </p>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <script>
+			function toggleArticleNav()
+			{
+				if (screen.innerWidth > 768) {
+					return;
+				}
+				const nav = document.getElementsByClassName("article-nav")[0];
+				nav.classList.toggle("hidden");
+			}
+
+			function generateArticleNavigation()
+			{
+				const navContainer = document.querySelector(".article-nav ul");
+				let navContent = "", lastH2Item = "";
+				document.querySelectorAll(".article h2, .article h3").forEach((heading, i) =>
+				{
+					const id = `heading-${i + 1}`;
+					heading.id = id;
+					if (heading.tagName === "H2") {
+						navContent += lastH2Item ? "</ul></li>" : "";
+						lastH2Item = `<li><a href="#${id}">${heading.innerText}</a><ul>`;
+						navContent += lastH2Item;
+					}
+					else {
+						navContent += `<li><a href="#${id}">${heading.innerText}</a></li>`;
+					}
+				});
+				navContainer.innerHTML = navContent ? navContent + "</ul></li>" : "";
+			}
+
+			window.onload = () => generateArticleNavigation();
+    </script>
+{% endblock %}

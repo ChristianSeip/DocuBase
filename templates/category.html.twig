@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'category_page.title'|trans }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <ul class="list-style-none">
+            {% for subcategory in subcategories %}
+                <li>
+                        <div class="card">
+                            <div class="card-header">
+                                <small>{{ 'category_page.sub_category'|trans }}:</small> <a href="{{ path('app_category', { 'categoryId': subcategory.id, 'categoryName': subcategory.name | slug }) }}" class="link-primary">{{ subcategory.name }}</a>
+                            </div>
+                        </div>
+                </li>
+            {% endfor %}
+            {% for article in articles %}
+                <li>
+                        <div class="card">
+                            <div class="card-header">
+                                <small>{{ 'category_page.article'|trans }}:</small> <a href="{{ path('app_article', { 'articleId': article.id, 'articleTitle': article.title | slug }) }}" class="link-primary">{{ article.category.parent ? article.category.parent.name ~ ' / ' ~ article.category.name : article.category.name }} / {{ article.title }}</a>
+                            </div>
+                            <div class="card-body">
+                                {{ article.text[:150] }}...
+                            </div>
+                            <div class="card-footer">{{ article.createdAt|date('d-m-Y') }}{% if article.updatedAt %} | Updated: {{ article.updatedAt|date('d-m-Y') }}{% endif %}</div>
+                        </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}

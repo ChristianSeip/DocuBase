@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="title" content="DocuBase | Seip - Softwareentwicklung">
+    <title>{% block title %}Home{% endblock %} | Seip - Softwareentwicklung</title>
+    <meta name="description"
+          content="Christian Seip bietet maßgeschneiderte Webentwicklung für Unternehmen an, inklusive responsive Designs, Backend-Entwicklung und Beratung.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://docs.seip.io">
+    <meta property="og:title" content="DocuBase | Seip - Softwareentwicklung">
+    <meta property="og:description"
+          content="Christian Seip bietet maßgeschneiderte Webentwicklung für Unternehmen an, inklusive responsive Designs, Backend-Entwicklung und Beratung.">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://static.seip.io/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://static.seip.io/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://static.seip.io/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://static.seip.io/styles/site.webmanifest">
+    <link rel="stylesheet" href="{{ asset('styles/FlareFramework/style.css') }}">
+    <style>
+			body {
+				background-color: #fff;
+				color: #000;
+				font-family: "Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial, sans-serif;
+				font-size: 1rem;
+				font-weight: 400;
+				line-height: 1.5;
+				padding: 0;
+			}
+
+			h1 {
+				margin-bottom: unset;
+			}
+
+			h1, h2, h3, h4, h5 {
+				font-weight: 600;
+			}
+
+			p {
+				max-width: unset;
+			}
+
+			.primary-color {
+				color: #673ab7;
+			}
+
+			.burger-menu {
+				background: none;
+				border: none;
+				font-size: 30px;
+				cursor: pointer;
+			}
+
+			.page-header {
+				height: 60px;
+			}
+
+			.page-header-inner {
+				height: 100%;
+				display: flex;
+				align-items: center;
+				align-content: center;
+				justify-content: space-between;
+
+				a {
+					padding: 19px 8px 8px;
+				}
+			}
+
+			.page-header-logo-link {
+				flex-grow: 0;
+			}
+
+			.page-header-navigation {
+				margin-left: auto;
+				display: flex;
+				align-items: center;
+
+				a {
+					color: #333;
+
+					&:hover {
+						text-decoration: underline;
+						text-underline-offset: 6px;
+						text-decoration-thickness: 2px;
+					}
+				}
+
+				ul {
+					margin-bottom: 0;
+
+					li {
+						margin-bottom: 0;
+					}
+				}
+			}
+
+			.container {
+				max-width: 1600px;
+				margin: auto;
+				width: 100%;
+				padding-left: 30px;
+				padding-right: 30px;
+			}
+
+			.show {
+				display: block !important;
+				animation: fadeIn 0.3s ease-in;
+			}
+
+			.page-footer {
+				background-color: #efefef;
+				display: flex;
+				font-size: 0.8rem;
+
+				nav {
+					display: flex;
+					flex-direction: row;
+					justify-content: center;
+					width: 100%;
+				}
+
+				a {
+					color: #333;
+
+					&:hover {
+						text-decoration: underline;
+						text-underline-offset: 6px;
+						text-decoration-thickness: 2px;
+					}
+				}
+			}
+
+			.search-bar-container {
+				width: 50%;
+				margin: auto;
+			}
+
+			.page-footer-nav-container {
+				margin: 24px 48px;
+			}
+
+			.page-footer-copyright {
+				text-align: center;
+			}
+
+			.header-text {
+				font-size: 1rem;
+				font-weight: 600;
+				color: #555;
+				margin-bottom: 0.5rem;
+			}
+
+			.btn-toggle {
+				display: none;
+			}
+
+			.article-nav {
+				position: relative;
+				left: 0;
+				top: 0;
+				background-color: #f8f9fa;
+				width: 250px;
+				padding: 18px;
+				overflow-y: auto;
+				box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+				transition: left 0.3s ease;
+			}
+
+			.article-nav ul {
+				list-style: none;
+				padding: 0;
+			}
+
+			.article-nav ul li {
+				margin: 10px 0;
+			}
+
+			.article-nav ul li a {
+				text-decoration: none;
+				color: #343a40;
+			}
+
+			.article-nav ul li ul {
+				margin-top: unset;
+				margin-bottom: unset;
+				padding-left: 20px;
+			}
+
+			.article {
+				margin-left: 32px;
+			}
+
+			@keyframes fadeIn {
+				from {
+					opacity: 0;
+				}
+				to {
+					opacity: 1;
+				}
+			}
+
+			@media (max-width: 1600px) {
+				.container {
+					max-width: 1200px;
+				}
+			}
+
+			@media (max-width: 1200px) {
+				.container {
+					max-width: 992px;
+				}
+			}
+
+			@media (max-width: 992px) {
+				.container {
+					max-width: 768px;
+				}
+			}
+
+			@media (max-width: 1000px) {
+				.page-header-navigation {
+					flex-grow: 0;
+					display: none;
+					position: fixed;
+					top: 60px;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					z-index: 1000;
+					background-color: #fff;
+					margin-left: 0;
+
+					ul {
+						flex-direction: column;
+
+						li {
+							display: block;
+							border-bottom: 1px dashed #acacac;
+							padding: 8px;
+						}
+					}
+				}
+
+				.page-header-logo-link {
+					flex-grow: 1;
+					text-align: center;
+				}
+
+				.page-footer-nav-container {
+					margin: 12px 24px;
+				}
+
+				.burger-menu.d-md-block {
+					display: block !important;
+				}
+			}
+
+			@media (max-width: 768px) {
+				.container {
+					max-width: 100%;
+				}
+
+				.search-bar-container {
+					width: 75%;
+				}
+
+				.article-nav.hidden {
+					left: -300px;
+				}
+
+				.btn-toggle {
+					background-color: #343a40;
+					color: #fff;
+					border: none;
+					cursor: pointer;
+					display: block;
+				}
+
+				.article {
+					width: 100%;
+					margin-left: unset;
+				}
+
+				.article-nav {
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					width: 250px;
+					background-color: #f8f9fa;
+					padding: 18px;
+					z-index: 1000;
+					transition: left 0.3s ease;
+				}
+
+				.article-nav.show {
+					left: 0;
+				}
+
+				.article-nav ul {
+					padding: 0;
+				}
+
+				.d-flex {
+					position: relative;
+				}
+			}
+
+			@media (max-width: 460px) {
+				.search-bar-container {
+					width: 100%;
+				}
+
+				.page-footer-nav-container {
+					width: 30%;
+				}
+
+				.page-footer nav {
+					flex-direction: column;
+					align-items: center;
+				}
+			}
+    </style>
+</head>
+<body>
+
+<header class="page-header">
+    <div class="page-header-inner container">
+        <button class="burger-menu d-none d-md-block" onclick="toggleMenu()" aria-label="Open Menu"
+                aria-expanded="false" aria-controls="primary-navigation">
+            &#9776;
+        </button>
+        <a href="/" class="page-header-logo-link">
+            <img src="https://static.seip.io/images/logos/seip_io_main_logo_black.svg"
+                 alt="Logo mit dem Schriftzug Seip" height="24px">
+        </a>
+        <nav class="page-header-navigation">
+            <ul class="inline-list">
+            {% if has_role('Guest') %}
+                <li><a href="{{ path('app_login') }}">{{ 'sign_in'|trans }}</a></li>
+                <li><a href="{{ path('app_register') }}">{{ 'register'|trans }}</a></li>
+            {% else %}
+                {% if has_permission('can_create_article') %}<li><a href="{{ path('app_article_create') }}">{{ 'new_article'|trans }}</a></li>{% endif %}
+                {% if has_permission('can_use_acp') %}
+                    <li><a href="{{ path('acp_dashboard') }}">Dashboard</a></li>
+                    <li><a href="{{ path('acp_user_list') }}">{{ 'users'|trans }}</a></li>
+                    <li><a href="{{ path('acp_role_list') }}">{{ 'roles'|trans }}</a></li>
+                    <li><a href="{{ path('acp_category_list') }}">{{ 'categories'|trans }}</a></li>
+                {% endif %}
+                <li><a href="{{ path('app_logout') }}">{{ 'logout'|trans }}</a></li>
+            {% endif %}
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="container pt-6 pb-6">
+    {% for label, messages in app.flashes %}
+        {% for msg in messages %}
+            {% if label == 'error' %}
+                {% set label = 'danger' %}
+            {% endif %}
+            <div class="alert {{ label }}-message">
+                {{ msg }}
+                <button class="btn btn-sm btn-danger ml-4" onclick="this.parentElement.style.display='none';">Close</button>
+            </div>
+        {% endfor %}
+    {% endfor %}
+</div>
+
+<div class="container pt-6 pb-6">
+    {% block body %}{% endblock %}
+</div>
+
+<footer class="page-footer">
+    <div class="container">
+        <nav>
+            <div class="page-footer-nav-container">
+                <div class="header-text">Folge uns</div>
+                <ul class="list-style-none">
+                    <li><a href="https://www.linkedin.com/in/christian-seip">LinkedIn</a></li>
+                    <li><a href="https://www.instagram.com/seipsoftware">Instagram</a></li>
+                    <li><a href="https://blog.seip.io">Blog</a></li>
+                </ul>
+            </div>
+            <div class="page-footer-nav-container">
+                <div class="header-text">Kontakt</div>
+                <ul class="list-style-none">
+                    <li><a href="https://www.seip.io/support">Support</a></li>
+                    <li><a href="https://www.seip.io/#Contact">Kontaktformular</a></li>
+                </ul>
+            </div>
+            <div class="page-footer-nav-container">
+                <div class="header-text">Rechtliches</div>
+                <ul class="list-style-none">
+                    <li><a href="https://www.seip.io/impressum">Impressum</a></li>
+                    <li><a href="https://www.seip.io/agb">AGB</a></li>
+                    <li><a href="https://www.seip.io/datenschutz">Datenschutzerklärung</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="page-footer-copyright">
+            <small><a href="https://www.seip.io">&copy; 2024 Christian Seip</a></small>
+        </div>
+    </div>
+</footer>
+
+<script src="{{ asset('styles/FlareFramework/bundle.js') }}"></script>
+
+<script>
+	function toggleMenu()
+	{
+		const burgerMenuButton = document.querySelector(".burger-menu");
+		const navigation = document.querySelector(".page-header-navigation");
+		navigation.classList.toggle("show");
+		const isExpanded = burgerMenuButton.getAttribute("aria-expanded") === "true";
+		burgerMenuButton.setAttribute("aria-expanded", !isExpanded);
+	}
+</script>
+
+</body>
+</html>

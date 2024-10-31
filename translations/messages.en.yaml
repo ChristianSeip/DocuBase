@@ -1,0 +1,142 @@
+email:
+  verification:
+    mail_subject: 'Mail Verification'
+    mail_body: 'Hello %username%,<br><br>to complete your registration please verify your email address:<br><br>%link%<br><br>'
+    error:
+      invalid_token_title: 'Invalid Token'
+      invalid_token_message: 'The token could not be verified!'
+      mail_sending_error: 'There was a problem sending the verification email. Please contact support.'
+    success:
+      title: 'Verification successful!'
+      message: 'Your email has been successfully verified!'
+user_data: 'User Data'
+username: 'Username'
+mail: 'Email'
+password: 'Password'
+article_search: 'Search for articles'
+search_button: 'Search'
+update_button: 'Update'
+save_button: 'Save'
+delete_button: 'Delete'
+edit_button: 'Edit'
+actions: 'Actions'
+uuid: 'UUID'
+sign_in: 'Login'
+register: 'Register'
+logout: 'Logout'
+account_locked: 'Your account has been locked. Please contact the support.'
+register_page:
+  title: 'Register'
+  login_prompt: 'Already registered? <a href="%path%">Login here!</a>'
+  disclaimer: 'By registering, you agree to the <a href="%terms_url%">Terms of Use</a> and the <a href="%privacy_url%">Data Protection Terms</a>.'
+  success:
+    title: 'Registration successful!'
+    message: 'Please check your email and confirm your registration.'
+  error:
+    cannot_create_user: 'Error: '
+    too_many_registrations: 'Too many account registrations from your IP, please try again later.'
+login_page:
+  title: 'Login'
+  error:
+    too_many_attempts: 'Too many logins from your IP, please try again later.'
+    email_not_verified: 'Please verify your email address before logging in.'
+  register_prompt: 'No account yet? <a href="%path%">Register here!</a>'
+information_page:
+  title: 'Information'
+user_settings_page:
+  title: 'User Settings'
+  form:
+    title: 'Update your settings'
+    email_label: 'New Email'
+    password_label: 'New Password'
+    password_repeat_label: 'Repeat Password'
+  success:
+    title: 'Update successful'
+    message: 'Your settings have been updated successfully.'
+category_page:
+  title: 'Category Overview'
+  'sub_category': 'Sub Category'
+  'article': 'Article'
+article_editor_page:
+  title: 'Edit Article'
+acp_dashboard_page:
+  title: 'Dashboard'
+  user_stats: 'User statistics'
+  total_users: 'Users'
+  total_users_30d: 'New Users (30d)'
+  total_users_banned: 'Banned users'
+  total_user_roles: 'User roles'
+  content_stats: 'Content statistics'
+  total_categories: 'Categories'
+  total_articles: 'Articles'
+  total_articles_30d: 'New Articles (30d)'
+  system_informations: 'System Informations'
+  php_version: 'PHP Version'
+  server_version: 'Operating System'
+acp_user_edit_page:
+  title: 'Edit User'
+  account_details: 'Account Details'
+  security: 'Security'
+  placeholder_password: 'Enter password'
+  placeholder_repeat_password: 'Repeat password'
+  user_status: 'Status'
+  verified: 'Verified'
+  locked: 'Locked'
+  roles: 'Roles'
+acp_user_create_page:
+  title: 'New User'
+  account_details: 'Account Details'
+  security: 'Security'
+  placeholder_password: 'Enter password'
+  placeholder_repeat_password: 'Repeat password'
+  user_status: 'Status'
+  verified: 'Verified'
+  locked: 'Locked'
+  roles: 'Roles'
+  success_message: 'User successfully created.'
+acp_user_delete:
+  prompt: 'Are you sure you want to delete this user?'
+  error_admin_role: '%username% is Admin and can not be deleted.'
+  success_message: '%username% successfully deleted.'
+acp_user_list_page:
+  title: 'User Management'
+  new_user_button: 'New User'
+acp_category_list_page:
+  title: 'Categories'
+  delete_prompt: 'Are you sure you want to delete this category?'
+  new_category_button: 'New Category'
+acp_category_create_page:
+  title: 'New Category'
+  success_message: 'Category created.'
+acp_category_edit_page:
+  title: 'Edit Category'
+  success_message: 'Category updated.'
+acp_category_delete_page:
+  category_not_empty: 'The category is not empty and therefore cannot be deleted.'
+  category_deleted: 'Category deleted.'
+  deletion_failed: 'The category could not be deleted due to an unexpected error.'
+acp_role_list_page:
+  title: 'Role Management'
+  new_role_button: 'New Role'
+acp_role_create_page:
+  title: 'Create Role'
+  success_message: 'Role created successfully.'
+acp_role_edit_page:
+  title: 'Edit Role'
+  success_message: 'Role updated successfully.'
+acp_role_delete_page:
+  cannot_delete_protected_role: 'This Role is protected and cannot be deleted.'
+  role_deleted: 'Role deleted successfully.'
+role_details: 'Role Details'
+role_name: 'Role Name'
+role_description: 'Role Description'
+role_not_found: 'Role not found.'
+permissions: 'Permissions'
+new_article: 'New Article'
+author: 'Author'
+updated: 'Updated'
+category_not_found: 'Category not found.'
+too_many_search_requests: 'You started too many searches in too short a time. Please wait a moment.'
+users: 'Users'
+categories: 'Categories'
+roles: 'Roles'
